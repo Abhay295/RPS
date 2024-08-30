@@ -10,6 +10,9 @@ const reset = () => {
     resetbtn.addEventListener("click", () => {
     userScore = 0;
     computerScore = 0;
+    msg.innerText = "Play your move";
+    msg.style.backgroundColor = "#fdf0d5"
+    msg.style.color = "#000"
     userScorepara.innerText = userScore;
     compScorepara.innerText = computerScore;    
 })
