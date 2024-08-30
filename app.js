@@ -4,8 +4,16 @@ const choices = document.querySelectorAll(".choice");
 let msg = document.querySelector("#msg")
 let userScorepara = document.querySelector("#user-score")
 let compScorepara = document.querySelector("#comp-score")
+let resetbtn = document.querySelector(".reset")
 
-
+const reset = () => { 
+    resetbtn.addEventListener("click", () => {
+    userScore = 0;
+    computerScore = 0;
+    userScorepara.innerText = userScore;
+    compScorepara.innerText = computerScore;    
+})
+}
 // index choice generate krva
 const randidx= () => {
     let num = Math.floor(Math.random() * 10)
@@ -16,8 +24,10 @@ const randidx= () => {
         }else{
             return num = 2;
         }
-        
 }
+
+
+
 
 const draw = () => {
     msg.innerText = "Game was Draw. Play again!!"
@@ -36,11 +46,13 @@ const showWinner = (userWin,userChoice,compChoice) => {
     if (userWin) {
         userScore++;
         userScorepara.innerText = userScore;
+        reset();
         msg.innerText = `You win! Your ${userChoice} beats ${compChoice}`
         msg.style.backgroundColor = "green"
     }else{
         computerScore++;
         compScorepara.innerText = computerScore;
+        reset();
         msg.innerText = `You lose. ${compChoice} beats your ${userChoice}`
         msg.style.backgroundColor = "red"
     }
